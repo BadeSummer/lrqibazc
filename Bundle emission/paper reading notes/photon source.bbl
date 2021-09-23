@@ -1,0 +1,43 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{hijlkema_single-photon_2007}
+M.~Hijlkema, B.~Weber, H.~P. Specht, S.~C. Webster, A.~Kuhn, G.~Rempe,
+  \href{http://www.nature.com/articles/nphys569}{A single-photon server with
+  just one atom}, Nature Physics 3~(4) (2007) 253--255.
+\newblock \href {https://doi.org/10.1038/nphys569}
+  {\path{doi:10.1038/nphys569}}.
+\newline\urlprefix\url{http://www.nature.com/articles/nphys569}
+
+\bibitem{miyazawa_single-photon_2016}
+T.~Miyazawa, K.~Takemoto, Y.~Nambu, S.~Miki, T.~Yamashita, H.~Terai,
+  M.~Fujiwara, M.~Sasaki, Y.~Sakuma, M.~Takatsu, T.~Yamamoto, Y.~Arakawa,
+  \href{http://aip.scitation.org/doi/10.1063/1.4961888}{Single-photon emission
+  at 1.5 μm from an {InAs}/{InP} quantum dot with highly suppressed
+  multi-photon emission probabilities}, Applied Physics Letters 109~(13) (2016)
+  132106.
+\newblock \href {https://doi.org/10.1063/1.4961888}
+  {\path{doi:10.1063/1.4961888}}.
+\newline\urlprefix\url{http://aip.scitation.org/doi/10.1063/1.4961888}
+
+\bibitem{fedorych_room_2012}
+O.~Fedorych, C.~Kruse, A.~Ruban, D.~Hommel, G.~Bacher, T.~Kümmell,
+  \href{http://aip.scitation.org/doi/10.1063/1.3683498}{Room temperature single
+  photon emission from an epitaxially grown quantum dot}, Applied Physics
+  Letters 100~(6) (2012) 061114.
+\newblock \href {https://doi.org/10.1063/1.3683498}
+  {\path{doi:10.1063/1.3683498}}.
+\newline\urlprefix\url{http://aip.scitation.org/doi/10.1063/1.3683498}
+
+\bibitem{tamariz_towards_2020}
+S.~Tamariz, G.~Callsen, J.~Stachurski, K.~Shojiki, R.~Butté, N.~Grandjean,
+  \href{http://arxiv.org/abs/2001.09805}{Towards bright and pure single photon
+  emitters at 300 {K} based on {GaN} quantum dots on silicon}, arXiv:2001.09805
+  [cond-mat]ArXiv: 2001.09805 (Jan. 2020).
+\newline\urlprefix\url{http://arxiv.org/abs/2001.09805}
+
+\end{thebibliography}

@@ -1,0 +1,175 @@
+\documentclass[10pt]{article}
+\usepackage{NotesTeX,lipsum}
+
+\title{\begin{center}{\Huge paper reading notes of}\\{{\itshape nonclassical photon sources}}\end{center}}
+\author{Loeng Waidak}
+
+\affiliation{
+    Sun-Yatsen unniversity\\
+    School of Physics and Astronomy
+}
+
+\emailAdd{liangwd23@mail2.sysu.edu.cn}
+
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\hd}[1]{\hat{#1}^{\dagger}}
+\renewcommand{\bra}[1]{\langle #1 |}
+\renewcommand{\ket}[1]{| #1 \rangle}
+\begin{document}
+    \maketitle
+    \flushbottom
+    \newpage
+    \pagestyle{fancynotes}
+
+    \part{Basic Concept}
+    \section{Jaynes-Cumings model}
+        Jaynes-Cumings(JC) model is used to describe the coupling between atom and light within the cavity.
+        It use quantum theory to describe both light and atom.
+        The simplest JC model's Hamiltonian can be write as:
+        \begin{equation}
+            \h{H} = \hbar \omega \hd{a} \h{a} + \frac{1}{2}\hbar \omega_A \h{\sigma}_z - \hbar g (\h{a}\hd{\sigma} + \hd{a}\h{\sigma})
+        \end{equation}
+        It is obviously that it couples atom state $\ket{g}$ and $\ket{e}$ with number state of light $\ket{n}$.
+        We can easily calculate martix elements like:
+        \begin{equation}
+            \bra{n+1,g} \h{H} \ket{n+1,g} = (n+1)\omega - \frac{1}{2}\omega_A
+        \end{equation}
+        Therefore we can rewrite JC Hamiltonian into $2\times 2$ matrix as:
+        \begin{equation}
+            \h{H} \begin{pmatrix}
+                \ket{n+1,g} \\ \ket{n,e}
+            \end{pmatrix}
+            = \hbar \begin{pmatrix}
+                (n+1)\omega-\frac{1}{2}\omega_A & -g\sqrt{n+1}\\
+                -g\sqrt{n+1} & n\omega + \frac{1}{2}\omega_A
+            \end{pmatrix}
+            \begin{pmatrix}
+                \ket{n+1,g} \\ \ket{n,e}
+            \end{pmatrix}
+        \end{equation}
+
+        
+        \begin{proof}
+            Now we start to solve eigenvalue problem!
+            \begin{align}
+                \left[(n+1)\omega - \frac{1}{2}\omega_A - \lambda\right]\left[n\omega + \frac{1}{2}\omega_A - \lambda\right]-g^2(n+1) &=0 \\
+                \lambda^2 - (2n+1)\omega \lambda + (n+1)^2\omega^2 - \frac{\delta^2}{4} - \frac{\Omega^2_n}{4} &= 0 
+            \end{align}
+            Easily to derive that:
+            \begin{equation}
+                \Delta = \delta^2 + \Omega^2_n 
+            \end{equation}
+            \begin{align}
+                \lambda &= \frac{(2n+1)\omega \pm \sqrt{\Delta}}{2} \\
+                &=(n+\frac{1}{2})\omega \pm\frac{1}{2}\sqrt{\delta^2 + \Omega_n^2} \\
+                &= (n+\frac{1}{2})\omega \pm \frac{1}{2} \delta^2 + \Omega^2_n 
+            \end{align}
+            where
+            \begin{equation}
+                \delta = \omega - \omega_A \qquad \Omega_n = 2g\sqrt{n+1}
+            \end{equation}
+        \end{proof}
+        This mean the state $\ket{n+1,g}$ and $\ket{n,e}$ are couple and struct two new state, whose eigenvalues is $\lambda_{\pm} = (n+\frac{1}{2})\omega \pm \frac{1}{2} \Delta_n$ due to the interactions between light field and atom.
+        And now we can findout the eigenstate of this coupling system.
+        \begin{proof}
+            \begin{equation}
+                \h{H}_n \ket{n,\pm} = \lambda_{\pm} \ket{n,\pm}
+            \end{equation}
+            we can let $\ket{n,+}$ write as:
+            \begin{equation}
+                \ket{n,+} = 
+                \begin{pmatrix}
+                    a\\b
+                \end{pmatrix}
+            \end{equation}
+            then we need to solve the equation to find a and b :
+            \begin{align}
+                \left[(n+1)\omega - \frac{1}{2}\omega_A \right]a - (g\sqrt{n+1}) b &= \left[(n+\frac{1}{2})\omega + \frac{1}{2}\sqrt{\delta^2 + \Omega_n^2}\right]a\\
+                (\omega - \omega_A + \sqrt{\delta^2 + \Omega^2_n}) a&= (2g\sqrt{n+1})b\\
+                (\delta - \Delta_n)a &= \Omega_n b
+            \end{align}
+            where
+            \begin{equation}
+                \Delta_n = \sqrt{\delta^2 + \Omega^2}
+            \end{equation}
+            the possible solution of a,b is :
+            \begin{gather}
+                a = \frac{\Omega_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}}\\
+                b = \frac{\delta - \Delta_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}}
+            \end{gather}
+            Therefore
+            \begin{equation}
+                \ket{n,+} = \frac{\Omega_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}}\ket{n+1,g} + \frac{\delta - \Delta_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}} \ket{n,e}
+            \end{equation}
+            In the same way, we can attain :
+            \begin{equation}
+                \ket{n,-} = \frac{\Delta_n - \delta}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}} \ket{n+1,g} + \frac{\Omega_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}} \ket{n,e}
+            \end{equation}
+            for convenience, we better define :
+            \begin{equation}
+                \cos\Theta = \frac{\Omega_n}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}}, \qquad \sin\Theta = \frac{\Delta_n - \delta}{\sqrt{(\delta-\Delta_n)^2 + \Omega_n}}
+            \end{equation}
+            then we can simplify eigenstate as\mn{This solution are different from the textbook of JC model. It may has some wrong with that textbook.} :
+            \begin{align}
+                \ket{n,+} &= \cos\Theta \ket{n+1,g} - \sin\Theta \ket{n,e}\\
+                \ket{n,-} &= \sin\Theta \ket{n+1,g} + \sin\Theta \ket{n,e}
+            \end{align}
+        \end{proof}
+
+        \section{Correlation function}
+        \section{Master equation}
+
+    \part{Research Background}
+        \section{Original motivation of this field}
+            In the applications of quantum infomation science such as: quantum computating, cryptography and metrology, generate and manipulate
+            single photon is an necessary technic. The biggest motivation to implement high quailty single photon source is that the born of quantum
+            computer will bring an extordinary impact on all over the world.
+        \section{Important achievements}
+            Up to now, several system including atom-cavity coupled with micro-cavity system, single quantum dot integrated with photonic crystal cavity, 
+            optical fibers and surface plasmos had been demonstrated that it can observe and manipulate single photon.
+        \section{Applications potential of this field}
+
+    \part{Study of scheme}
+        \section{Atom-Cavity coupled}
+            Dterministic single-photon sources have been realized with newutral atoms, embedded molecules, trapped ions, quantum dots and defect centres.
+            But different apolications have different requirement. For example, quantum computing or quantum networking require that photons must also be indistinguishable
+            and high efficiency. Unfortunately, high efficiency is hard to obtain in free space where atoms only contain between two lens. But strongly coupling 
+            the radiating object to an optical microcavity can raise up the efficiency.\par
+
+            Compare to ions, atoms are largely immune to perturbations like electric patch fields close to dielectric mirrors.
+
+            Markus \textit{et al}. report a scheme of Rb atom which can save Rb atoms in the cavity up to 30s for producing up to 300,000 photons per atom.\cite{hijlkema_single-photon_2007}
+        \section{Quantum dot - Cavity coupled}
+        Due to their corresponding atomic-like discrete energy levels, semiconductor quantum dots are often given the moniker artificial atoms. And thanks
+        to its poperty of designable, quantum dots based single photon source has the band from IR at $1.55 \mu m$ to the deep UV region at $<280 nm$.
+        More than this, single photon emission from semiconductor QDs has also been realized at temperatures up to room temperature and beyond.
+
+            \subsection{In the Original region ~ 1300nm}
+                Miyazawa \textit{et al.} use InAs QDs obtain lowest $g^2(0) = (4.4\pm0.2)\times 10^{-4}$.\cite{miyazawa_single-photon_2016} About 200KM QKD require $g^2(0)$ down to the 
+                value $10^{-4}$ and the parameters $\langle n \rangle$ and the radiative lifetime must be improved to 0.175 and 0.12 ns, respectively.
+                Miyazawa \textit{et al.} already achieve one of the requirements.
+
+            \subsection{The visible}
+                Quantum dots formed from InGaN, InP, and various combinations of type II–VI semiconductors such as 
+                CdSe/ZnSe can be used to generate single photons with wavelengths in the visible region of the spectrum.
+                Moreover, in contrast to the long wavelength emitters discussed above, single photon emission in the visible 
+                and ultraviolet has regularly been reported from QDs at ambient temperatures of 300 K and above.\par
+
+                Fedorych \textit{et al.} realized room temperature single photon emission from CdSe/ZnSSe quantum dots. They reduce the correlation function
+                $g^{(2)}(0)$ down to $0.16\pm0.15$ at $T=300K$\cite{fedorych_room_2012}.\par
+
+                \begin{definition}
+                    [Advantage] Can be obtain under romm temperature, which is an key point to ahcieve widly applications.
+                    [Drawback] Due to high temperature, the efficiency is relatively low.
+                \end{definition}
+
+            \subsection{The UV region}
+                Tamariz \textit{et al.} demonstrated GaN QD single photon emitter can be operated at 300K with $g^{(2)(0)= 0.17\pm 0.08}$. In addition,
+                photon emission rates can raise up to $6\times 10^{6} s^{-1}$ while $g^{(2)}(0)\leq 0.5$ is maintained\cite{tamariz_towards_2020}.
+        \section{Optical fibers}
+        \section{Surface plasmos}
+
+
+    \bibliographystyle{elsarticle-num}
+    \bibliography{sps}
+\end{document}
